@@ -8,22 +8,22 @@ const app = express();
 
 app.disable("x-powered-by");
 
-// 1. Checkpoints that run for every request
+// 1. Middleware that runs for every request
 app.use(requestLogger);
 app.use(express.json());
 
 // 2. Routes
 app.use("/api/health", healthRouter);
 
-// Demo: an async route that crashes. Express 5 catches it automatically.
+// Demo: async route that throws. Express 5 forwards it to errorHandler.
 app.get("/api/boom", async () => {
   throw new Error("Boom! Simulated failure");
 });
 
-// 3. Nothing matched → 404
+// 3. No route matched → 404
 app.use(notFound);
 
-// 4. Error handler — ALWAYS last
+// 4. Error handler — must be last
 app.use(errorHandler);
 
 export default app;
