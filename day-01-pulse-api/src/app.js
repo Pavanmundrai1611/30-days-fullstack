@@ -1,8 +1,10 @@
 import express from "express";
+import { requestLogger } from "./middleware/requestLogger.js";
 
 const app = express();
 
 app.disable("x-powered-by");
+app.use(requestLogger);
 app.use(express.json());
 
 app.get("/api/health", (req, res) => {
