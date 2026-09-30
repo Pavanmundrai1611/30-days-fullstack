@@ -1,0 +1,20 @@
+{
+  "name": "day-01-pulse-api",
+  "version": "1.0.0",
+  "description": "Production-style Express skeleton: health check, logging, error handling, graceful shutdown",
+  "private": true,
+  "type": "module",
+  "main": "src/server.js",
+  "scripts": {
+    "dev": "node --watch --env-file=.env src/server.js",
+    "start": "node src/server.js"
+  },
+  "engines": {
+    "node": ">=20.6"
+  },
+  "author": "Pavan Mundrai",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^5.2.1"
+  }
+}
